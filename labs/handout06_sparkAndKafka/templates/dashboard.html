@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Analytics Dashboard</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 15px 0;
+        }
+        .label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #4caf50;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="status-indicator">● Live</div>
+    <h1>Real-Time Analytics Dashboard</h1>
+
+    <div class="grid">
+        <div class="card">
+            <div class="label">Sensor Readings</div>
+            <div id="sensor" class="value">0</div>
+        </div>
+        <div class="card">
+            <div class="label">Temperature (°C)</div>
+            <div id="temp" class="value">0.0</div>
+        </div>
+        <div class="card">
+            <div class="label">Transactions</div>
+            <div id="txn" class="value">0</div>
+        </div>
+        <div class="card">
+            <div class="label">Revenue ($)</div>
+            <div id="revenue" class="value">0.00</div>
+        </div>
+    </div>
+
+    <script>
+        // Connect to Socket.IO namespace /live
+        var socket = io('/live');
+
+        socket.on('update', function(data) {
+            document.getElementById('sensor').innerText =
+                data.sensor_count.toLocaleString();
+
+            document.getElementById('temp').innerText =
+                data.current_temp.toFixed(1);
+
+            document.getElementById('txn').innerText =
+                data.txn_count.toLocaleString();
+
+            document.getElementById('revenue').innerText =
+                data.total_revenue.toLocaleString('en', {
+                    minimumFractionDigits: 2
+                });
+        });
+    </script>
+</body>
+</html>

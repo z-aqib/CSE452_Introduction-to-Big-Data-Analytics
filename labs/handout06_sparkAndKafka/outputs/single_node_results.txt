@@ -1,0 +1,24 @@
+Single Node Benchmark Results
+==================================================
+
+1 Core(s):
+  load_time: 6.41s
+  aggregation_time: 2.00s
+  filter_time: 3.10s
+  join_time: 63.37s
+  total_time: 74.88s
+
+2 Core(s):
+  load_time: 0.69s
+  aggregation_time: 1.26s
+  filter_time: 2.23s
+  join_time: 42.21s
+  total_time: 46.39s
+
+4 Core(s):
+  load_time: 0.59s
+  aggregation_time: 1.42s
+  filter_time: 1.71s
+  join_time: 23.57s
+  total_time: 27.30s
+

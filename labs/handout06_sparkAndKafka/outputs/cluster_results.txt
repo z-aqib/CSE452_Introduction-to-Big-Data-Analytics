@@ -1,0 +1,24 @@
+Cluster Benchmark Results
+==================================================
+
+2 Cores:
+  load_time: 8.44s
+  aggregation_time: 2.18s
+  filter_time: 0.80s
+  join_time: 223.84s
+  total_time: 235.27s
+
+4 Cores:
+  load_time: 4.52s
+  aggregation_time: 2.29s
+  filter_time: 0.44s
+  join_time: 220.93s
+  total_time: 228.18s
+
+6 Cores:
+  load_time: 4.36s
+  aggregation_time: 1.49s
+  filter_time: 0.43s
+  join_time: 216.94s
+  total_time: 223.22s
+
