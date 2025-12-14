@@ -1,0 +1,9 @@
+SRAM
+DRAM
+DDRAM
+HDD
+SSD
+NAND Flash
+NOR Flash
+i9 and i7?
+How has BDA changed with LLMs and AI?
