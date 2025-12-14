@@ -1,0 +1,37 @@
+MongoDb data types chorhdo
+
+Distributed Mongodb important primary secondary reading writing op log, application of every thing, scenario based, theoretical and practical. Read concern, write concern. Arbiter, aik aur node. Sharding, key, load balancing. 
+
+No redis (lec 17 is redis)
+
+Zookepeer, Znodes, Tree, node add, what is node, node content kya kya asakta, Zookepeer leader kaisai select karta hai scenario aana chahiye, algorithm ana chahiye. Watches kaisay send karte hain znode pe, important. Zookeeper cluster, leader follower, Zookepeer atomic broadcast waghera kese chalta hai
+
+Hbase, basically a database, uska data structure, row key, column families, multidimensional map, linking storage ke saath, sstable, mtable. Writing aur reading ke waqt process follow, scenario based. RowKey, kya kya cheezain isme hosakti, faiday. Column Family storage. Hbase versions, timestamp, hbase ki khaasiyat, hbase istemal karlo, konsa scenario aur kiyun? distinguishing feature of Hbase. Spark in memory, mapreduce ko peeche chorhdia. Chatgpt se puchlo. 
+Hbase client server architecture. Flow of data. Query read, query write, konse architecture se kahan kahan flow hota hai. 
+
+Hive, basically partitioning, bucketing, shuru ka, basic syntax dekhlen. External Table, falaan table.
+
+Spark, DAG main cheez, Airflow, Tez pe kaam kya hoga aap logon ne(?) 
+Parallel paths, Transformation Actions. Chand hi tou hain, bachon walay, yaad karlen. Spark pe 10 sawal nahi hain, 1,1-2,2 sawal. 
+
+Kafka, there's nothing to do but understanding, producer consumer, offset, zehn mein bithalen. Kafka kaam kis tarah karta hai, datapoint hai kya karun. 
+
+Final Lambda Architecture design, real time steaming application architecture e-commerce not final but aapki marzi, teen layer, serving layer, speed layer, dash layer specifications module and flow (20 marks) 
+
+Question paper ke andar hi answer. Like mids.
+
+120 marks total. 26 questions.
+
+Hive.Lec.10: Skip DAG, Data Types, all HQL examples, and queries (you have enough knowledge from hands-on to focus on them in the lecture) - just focus on basic concepts - skip repetiive slides
+Lec 11, 13, 14, 15, 16: All important
+Lec 12 (Spark): just focus on basic concepts - skip repetiive slides - no need to remember code.
+
+One question will be to design a lambda architecture on a real-time streaming application. Here: https://www.databricks.com/glossary/lambda-architecture
+You need to add big data technology to the layers in lambda to demonstrate your knowledge. This is a heavy weightage question
+
+big data architecture design (policies, replication, fault tolderance, leader selection etc)
+hive (w hadoop)- logical layer waghera, hdfs files tables mai kese link hoti hai (hdfs link w tables)
+spark (IMP)
+kafka (slightly imp)+zookeeper
+hbase (IMP)
+mongodb (IMP)
