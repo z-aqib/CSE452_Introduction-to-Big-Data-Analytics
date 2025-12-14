@@ -1,0 +1,109 @@
+version: "3.9"
+
+services:
+  # ----------------------------
+  # HADOOP CLUSTER (from BDE)
+  # ----------------------------
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=demo
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    volumes:
+      - namenode:/hadoop/dfs/name
+    networks:
+      - bigdata
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode
+    environment:
+      - SERVICE_PRECONDITION=namenode:9870
+    volumes:
+      - datanode:/hadoop/dfs/data
+    networks:
+      - bigdata
+
+  # ----------------------------
+  # POSTGRESQL (for Hive Metastore)
+  # ----------------------------
+  postgres:
+    image: postgres:14
+    container_name: hive-metastore-postgres
+    environment:
+      POSTGRES_DB: metastore
+      POSTGRES_USER: hive
+      POSTGRES_PASSWORD: hive
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - bigdata
+
+  # ----------------------------
+  # HIVE METASTORE
+  # ----------------------------
+  metastore:
+    image: apache/hive:4.0.0
+    container_name: hive-metastore
+    command: ["bash", "-c", "
+        /opt/hive/bin/schematool -dbType postgres \
+          -userName hive -passWord hive \
+          -url jdbc:postgresql://postgres:5432/metastore \
+          -initSchema && \
+        /opt/hive/bin/hive --service metastore
+      "]
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+      - HIVE_METASTORE_DB_TYPE=postgres
+      - HIVE_METASTORE_DB_HOST=postgres
+      - HIVE_METASTORE_DB_NAME=metastore
+      - HIVE_METASTORE_DB_USER=hive
+      - HIVE_METASTORE_DB_PASS=hive
+      - HIVE_METASTORE_PORT=9083
+      - SERVICE_NAME=metastore
+      - fs.defaultFS=hdfs://namenode:9000
+    depends_on:
+      - postgres
+      - namenode
+    ports:
+      - "9083:9083"
+    networks:
+      - bigdata
+
+  # ----------------------------
+  # HIVE SERVER2
+  # ----------------------------
+  hiveserver2:
+    image: apache/hive:4.0.0
+    container_name: hive-server2
+    command: ["bash", "-c", "
+        until nc -z hive-metastore 9083; do echo 'Waiting for metastore...'; sleep 5; done; \
+        /opt/hive/bin/hive --service hiveserver2
+      "]
+    environment:
+      - SERVICE_NAME=hiveserver2
+      - HIVE_METASTORE_URI=thrift://hive-metastore:9083
+      - HADOOP_HOME=/opt/hadoop
+      - fs.defaultFS=hdfs://namenode:9000
+    depends_on:
+      - metastore
+      - namenode
+    ports:
+      - "10000:10000"
+      - "10002:10002"
+    networks:
+      - bigdata
+
+networks:
+  bigdata:
+    driver: bridge
+
+volumes:
+  namenode:
+  datanode:
+  pgdata:

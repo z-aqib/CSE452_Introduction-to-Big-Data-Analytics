@@ -1,0 +1,96 @@
+version: "3.8"
+
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    container_name: docker-hive-namenode-1
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      - CLUSTER_NAME=test
+    volumes:
+      - namenode:/hadoop/dfs/name
+    ports:
+      - "50070:50070"
+    healthcheck:
+      test: ["CMD", "bash", "-lc", "curl -sf http://localhost:50070 | grep -q Namenode"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    container_name: docker-hive-datanode-1
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      - SERVICE_PRECONDITION=namenode:50070
+    volumes:
+      - datanode:/hadoop/dfs/data
+    ports:
+      - "50075:50075"
+
+  hive-metastore-postgresql:
+    image: bde2020/hive-metastore-postgresql:2.3.0
+    container_name: docker-hive-hive-metastore-postgresql-1
+    ports:
+      - "5432:5432"
+
+  hive-metastore:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: docker-hive-hive-metastore-1
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      - SERVICE_PRECONDITION=namenode:50070 datanode:50075 hive-metastore-postgresql:5432
+      # IMPORTANT: point metastore at the *Postgres* container (not at hive-metastore)
+      - HIVE_CORE_CONF_javax_jdo_option_ConnectionURL=jdbc:postgresql://hive-metastore-postgresql:5432/metastore
+    command: /opt/hive/bin/hive --service metastore
+    ports:
+      - "9083:9083"
+    depends_on:
+      - namenode
+      - datanode
+      - hive-metastore-postgresql
+
+  hive-server:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: docker-hive-hive-server-1
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      - SERVICE_PRECONDITION=hive-metastore:9083
+      # Tell HS2 where the metastore thrift is:
+      - HIVE_SITE_CONF_hive_metastore_uris=thrift://hive-metastore:9083
+
+      # === ACID / Transactions ===
+      - HIVE_SITE_CONF_hive_txn_manager=org.apache.hadoop.hive.ql.lockmgr.DbTxnManager
+      - HIVE_SITE_CONF_hive_support_concurrency=true
+      - HIVE_SITE_CONF_hive_compactor_initiator_on=true
+      - HIVE_SITE_CONF_hive_compactor_worker_threads=1
+
+      # Helpful lab flags (fine for Hive 2.x labs)
+      - HIVE_SITE_CONF_hive_enforce_bucketing=true
+      - HIVE_SITE_CONF_hive_exec_dynamic_partition_mode=nonstrict
+
+      # Warehouse location (default is fine; we set explicitly for clarity)
+      - HIVE_SITE_CONF_hive_metastore_warehouse_dir=/user/hive/warehouse
+
+      # Optional: raise open transactions if you do a lot of ACID ops
+      - HIVE_SITE_CONF_hive_server2_transactions_max_open_transactions=1000
+    ports:
+      - "10000:10000"
+    depends_on:
+      - hive-metastore
+
+  presto-coordinator:
+    image: shawnzhu/prestodb:0.181
+    container_name: docker-hive-presto-coordinator-1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - hive-server
+
+volumes:
+  namenode:
+  datanode:

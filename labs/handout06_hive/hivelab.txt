@@ -1,0 +1,23 @@
+Assalamoalaikum.
+
+You need to make an integrated compose file consisting of BDE (a sample is attached).
+
+For the benchmarking, use your own big dataset (should be table based and at least 0.5 GB)
+
+Also, use at least 4 queries of increasing complexity.
+
+1) Simple Select and Filter (select and where clause)
+
+2) Select and Group By
+
+3) Join 
+
+4) Nested Query
+
+Mention the execution time along with other possible resource usage parameters.
+
+Submit the PDF and also the modified docker compose file
+
+Re-run any commands in the given lab which are not supported by the current Hive version and mention them as well
+
+Also mention any extra settings-based commands that you have executed.
