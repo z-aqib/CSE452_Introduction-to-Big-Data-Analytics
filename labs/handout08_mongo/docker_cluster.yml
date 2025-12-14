@@ -1,0 +1,146 @@
+version: '3.8'
+services:
+  # CONFIG SERVERS (3-node replica set)
+  cfg1:
+    image: mongo:4.4
+    container_name: cfg1
+    command: ["mongod", "--configsvr", "--replSet", "cfgRepl", "--port", "27019", "--bind_ip_all"]
+    volumes:
+      - cfg1-db:/data/db
+    networks:
+      - mongonet
+
+  cfg2:
+    image: mongo:4.4
+    container_name: cfg2
+    command: ["mongod", "--configsvr", "--replSet", "cfgRepl", "--port", "27019", "--bind_ip_all"]
+    volumes:
+      - cfg2-db:/data/db
+    networks:
+      - mongonet
+
+  cfg3:
+    image: mongo:4.4
+    container_name: cfg3
+    command: ["mongod", "--configsvr", "--replSet", "cfgRepl", "--port", "27019", "--bind_ip_all"]
+    volumes:
+      - cfg3-db:/data/db
+    networks:
+      - mongonet
+
+  # SHARD A (3-node replica set)
+  shardA1:
+    image: mongo:4.4
+    container_name: shardA1
+    command: ["mongod", "--shardsvr", "--replSet", "shardA", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - shardA1-db:/data/db
+    networks:
+      - mongonet
+
+  shardA2:
+    image: mongo:4.4
+    container_name: shardA2
+    command: ["mongod", "--shardsvr", "--replSet", "shardA", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - shardA2-db:/data/db
+    networks:
+      - mongonet
+
+  shardA3:
+    image: mongo:4.4
+    container_name: shardA3
+    command: ["mongod", "--shardsvr", "--replSet", "shardA", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - shardA3-db:/data/db
+    networks:
+      - mongonet
+
+  # SHARD B (3-node replica set)
+  shardB1:
+    image: mongo:4.4
+    container_name: shardB1
+    command: ["mongod", "--shardsvr", "--replSet", "shardB", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - shardB1-db:/data/db
+    networks:
+      - mongonet
+
+  shardB2:
+    image: mongo:4.4
+    container_name: shardB2
+    command: ["mongod", "--shardsvr", "--replSet", "shardB", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - shardB2-db:/data/db
+    networks:
+      - mongonet
+
+  shardB3:
+    image: mongo:4.4
+    container_name: shardB3
+    command: ["mongod", "--shardsvr", "--replSet", "shardB", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - shardB3-db:/data/db
+    networks:
+      - mongonet
+
+  # MONGOS router
+  mongos:
+    image: mongo:4.4
+    container_name: mongos
+    depends_on:
+      - cfg1
+      - cfg2
+      - cfg3
+      - shardA1
+      - shardA2
+      - shardA3
+      - shardB1
+      - shardB2
+      - shardB3
+    entrypoint: ["/bin/bash", "-c"]
+    command: 
+      - |
+        echo "Waiting 20 seconds for config servers and shards to start..."
+        sleep 20
+        echo "Starting mongos router..."
+        mongos --configdb cfgRepl/cfg1:27019,cfg2:27019,cfg3:27019 --bind_ip_all --port 27017
+    ports:
+      - "27017:27017"
+    networks:
+      - mongonet
+
+  # PYTHON initializer
+  init-cluster:
+    image: python:3.11-slim
+    container_name: init-cluster
+    depends_on:
+      - mongos
+    volumes:
+      - ./scripts:/scripts:ro
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+      - |
+        echo "Waiting 35 seconds for entire cluster to stabilize..."
+        sleep 35
+        echo "Installing pymongo..."
+        pip install --no-cache-dir pymongo
+        echo "Running cluster initialization..."
+        python /scripts/init_cluster.py mongodb://mongos:27017
+    networks:
+      - mongonet
+
+volumes:
+  cfg1-db: {}
+  cfg2-db: {}
+  cfg3-db: {}
+  shardA1-db: {}
+  shardA2-db: {}
+  shardA3-db: {}
+  shardB1-db: {}
+  shardB2-db: {}
+  shardB3-db: {}
+
+networks:
+  mongonet:
+    driver: bridge

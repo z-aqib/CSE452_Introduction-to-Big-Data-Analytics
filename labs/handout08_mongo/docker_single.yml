@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  mongo-single:
+    image: mongo:4.4
+    container_name: mongo-single
+    command: ["mongod", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - "27017:27017"  # Access MongoDB here
+    volumes:
+      - mongo_single_db:/data/db
+    networks:
+      - mongonet
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')", "--quiet"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 10s
+
+  init-single:
+    image: python:3.11-slim
+    container_name: init-single
+    depends_on:
+      mongo-single:
+        condition: service_healthy
+    volumes:
+      - ./scripts:/scripts:ro
+    command: ["/bin/sh", "-c", "sleep 5 && pip install --no-cache-dir --retries 5 pymongo && python /scripts/init_single.py mongodb://mongo-single:27017"]
+    networks:
+      - mongonet
+    restart: "no"
+
+volumes:
+  mongo_single_db: {}
+
+networks:
+  mongonet:
+    driver: bridge
