@@ -1,0 +1,100 @@
+200,MasterCard,www.amazon.com,Gaming Mouse,2019-05-27 10:00:00,45.99,Karachi,Pakistan
+201,Visa,www.ebay.com,Keyboard,2019-05-27 10:15:00,89.50,Lahore,Pakistan
+202,MasterCard,www.flipkart.com,Monitor Stand,2019-05-27 10:30:00,35.00,Islamabad,Pakistan
+203,Visa,www.snapdeal.com,USB Hub,2019-05-27 10:45:00,25.99,Mumbai,India
+204,MasterCard,www.amazon.com,Webcam,2019-05-27 11:00:00,129.99,Delhi,India
+205,Visa,www.ebay.com,Speakers,2019-05-27 11:15:00,79.99,Pune,India
+206,MasterCard,www.flipkart.com,Mouse Pad,2019-05-27 11:30:00,15.50,Dubai,UAE
+207,Visa,www.amazon.com,HDMI Cable,2019-05-27 11:45:00,12.99,London,United Kingdom
+208,MasterCard,www.snapdeal.com,Power Bank,2019-05-27 12:00:00,39.99,Toronto,Canada
+209,Visa,www.ebay.com,Phone Holder,2019-05-27 12:15:00,18.50,Sydney,Australia
+210,MasterCard,www.flipkart.com,Laptop Bag,2019-05-27 12:30:00,49.99,Tokyo,Japan
+211,Visa,www.amazon.com,Screen Protector,2019-05-27 12:45:00,9.99,Singapore,Singapore
+212,MasterCard,www.ebay.com,Charging Cable,2019-05-27 13:00:00,14.99,Paris,France
+213,Visa,www.snapdeal.com,Bluetooth Adapter,2019-05-27 13:15:00,22.50,Berlin,Germany
+214,MasterCard,www.flipkart.com,Memory Card,2019-05-27 13:30:00,29.99,Rome,Italy
+215,Visa,www.amazon.com,SD Card Reader,2019-05-27 13:45:00,11.99,Madrid,Spain
+216,MasterCard,www.ebay.com,Laptop Cooler,2019-05-27 14:00:00,34.99,Amsterdam,Netherlands
+217,Visa,www.snapdeal.com,Desk Lamp,2019-05-27 14:15:00,42.50,Brussels,Belgium
+218,MasterCard,www.flipkart.com,Cable Organizer,2019-05-27 14:30:00,8.99,Stockholm,Sweden
+219,Visa,www.amazon.com,Portable SSD,2019-05-27 14:45:00,149.99,Oslo,Norway
+220,MasterCard,www.ebay.com,Wireless Charger,2019-05-27 15:00:00,55.00,Helsinki,Finland
+221,Visa,www.flipkart.com,Smart Watch,2019-05-27 15:15:00,299.99,Copenhagen,Denmark
+222,MasterCard,www.snapdeal.com,Fitness Band,2019-05-27 15:30:00,89.99,Warsaw,Poland
+223,Visa,www.amazon.com,Earbuds,2019-05-27 15:45:00,45.50,Prague,Czech Republic
+224,MasterCard,www.ebay.com,Phone Stand,2019-05-27 16:00:00,12.99,Vienna,Austria
+225,Visa,www.flipkart.com,Tablet Case,2019-05-27 16:15:00,24.99,Budapest,Hungary
+226,MasterCard,www.snapdeal.com,Stylus Pen,2019-05-27 16:30:00,19.99,Bucharest,Romania
+227,Visa,www.amazon.com,Bluetooth Speaker,2019-05-27 16:45:00,79.99,Athens,Greece
+228,MasterCard,www.ebay.com,Gaming Headset,2019-05-27 17:00:00,129.99,Lisbon,Portugal
+229,Visa,www.flipkart.com,Microphone,2019-05-27 17:15:00,65.00,Dublin,Ireland
+230,MasterCard,www.snapdeal.com,USB Drive 64GB,2019-05-27 17:30:00,22.50,Edinburgh,United Kingdom
+231,Visa,www.amazon.com,External HDD 1TB,2019-05-27 17:45:00,89.99,Manchester,United Kingdom
+232,MasterCard,www.ebay.com,Router,2019-05-27 18:00:00,75.00,Birmingham,United Kingdom
+233,Visa,www.flipkart.com,Network Switch,2019-05-27 18:15:00,45.99,Glasgow,United Kingdom
+234,MasterCard,www.snapdeal.com,Ethernet Cable,2019-05-27 18:30:00,8.50,Liverpool,United Kingdom
+235,Visa,www.amazon.com,Wireless Adapter,2019-05-27 18:45:00,25.99,Leeds,United Kingdom
+236,MasterCard,www.ebay.com,Laptop Stand,2019-05-27 19:00:00,39.99,Sheffield,United Kingdom
+237,Visa,www.flipkart.com,Monitor Arm,2019-05-27 19:15:00,129.99,Bristol,United Kingdom
+238,MasterCard,www.snapdeal.com,Desk Mat,2019-05-27 19:30:00,19.99,Leicester,United Kingdom
+239,Visa,www.amazon.com,Wrist Rest,2019-05-27 19:45:00,14.99,Nottingham,United Kingdom
+240,MasterCard,www.ebay.com,Gaming Chair,2019-05-27 20:00:00,399.99,Newcastle,United Kingdom
+241,Visa,www.flipkart.com,Office Chair,2019-05-27 20:15:00,299.99,Cardiff,United Kingdom
+242,MasterCard,www.snapdeal.com,Standing Desk,2019-05-27 20:30:00,549.99,Belfast,United Kingdom
+243,Visa,www.amazon.com,Monitor 24inch,2019-05-27 20:45:00,199.99,Chennai,India
+244,MasterCard,www.ebay.com,Monitor 27inch,2019-05-27 21:00:00,279.99,Bangalore,India
+245,Visa,www.flipkart.com,Curved Monitor,2019-05-27 21:15:00,349.99,Hyderabad,India
+246,MasterCard,www.snapdeal.com,4K Monitor,2019-05-27 21:30:00,499.99,Kolkata,India
+247,Visa,www.amazon.com,Ultrawide Monitor,2019-05-27 21:45:00,599.99,Ahmedabad,India
+248,MasterCard,www.ebay.com,Portable Monitor,2019-05-27 22:00:00,159.99,Jaipur,India
+249,Visa,www.flipkart.com,Graphics Tablet,2019-05-27 22:15:00,89.99,Lucknow,India
+250,MasterCard,www.snapdeal.com,Drawing Tablet,2019-05-27 22:30:00,199.99,Kanpur,India
+251,Visa,www.amazon.com,Pen Display,2019-05-27 22:45:00,399.99,Nagpur,India
+252,MasterCard,www.ebay.com,Light Pad,2019-05-27 23:00:00,45.00,Indore,India
+253,Visa,www.flipkart.com,Mechanical Keyboard RGB,2019-05-27 23:15:00,149.99,Thane,India
+254,MasterCard,www.snapdeal.com,Wireless Keyboard,2019-05-27 23:30:00,59.99,Bhopal,India
+255,Visa,www.amazon.com,Ergonomic Keyboard,2019-05-27 23:45:00,79.99,Visakhapatnam,India
+256,MasterCard,www.ebay.com,Gaming Keyboard,2019-05-28 00:00:00,129.99,Pimpri,India
+257,Visa,www.flipkart.com,Bluetooth Keyboard,2019-05-28 00:15:00,49.99,Patna,India
+258,MasterCard,www.snapdeal.com,Mini Keyboard,2019-05-28 00:30:00,35.00,Vadodara,India
+259,Visa,www.amazon.com,Gaming Mouse RGB,2019-05-28 00:45:00,69.99,Ghaziabad,India
+260,MasterCard,www.ebay.com,Wireless Mouse,2019-05-28 01:00:00,29.99,Ludhiana,India
+261,Visa,www.flipkart.com,Trackball Mouse,2019-05-28 01:15:00,55.00,Agra,India
+262,MasterCard,www.snapdeal.com,Vertical Mouse,2019-05-28 01:30:00,45.99,Nashik,India
+263,Visa,www.amazon.com,Silent Mouse,2019-05-28 01:45:00,39.99,Faridabad,India
+264,MasterCard,www.ebay.com,Travel Mouse,2019-05-28 02:00:00,25.00,Meerut,India
+265,Visa,www.flipkart.com,USB Type-C Cable,2019-05-28 02:15:00,15.99,Rajkot,India
+266,MasterCard,www.snapdeal.com,Lightning Cable,2019-05-28 02:30:00,19.99,Kalyan,India
+267,Visa,www.amazon.com,Micro USB Cable,2019-05-28 02:45:00,9.99,Vasai,India
+268,MasterCard,www.ebay.com,Multi Cable,2019-05-28 03:00:00,24.99,Varanasi,India
+269,Visa,www.flipkart.com,Coiled Cable,2019-05-28 03:15:00,29.99,Srinagar,India
+270,MasterCard,www.snapdeal.com,Magnetic Cable,2019-05-28 03:30:00,22.50,Aurangabad,India
+271,Visa,www.amazon.com,Fast Charging Cable,2019-05-28 03:45:00,18.99,Dhanbad,India
+272,MasterCard,www.ebay.com,Long Cable 10ft,2019-05-28 04:00:00,16.99,Amritsar,India
+273,Visa,www.flipkart.com,Braided Cable,2019-05-28 04:15:00,21.99,Allahabad,India
+274,MasterCard,www.snapdeal.com,Retractable Cable,2019-05-28 04:30:00,19.99,Ranchi,India
+275,Visa,www.amazon.com,LED Strip 5m,2019-05-28 04:45:00,29.99,Howrah,India
+276,MasterCard,www.ebay.com,Smart Bulb,2019-05-28 05:00:00,24.99,Guwahati,India
+277,Visa,www.flipkart.com,Ring Light,2019-05-28 05:15:00,49.99,Chandigarh,India
+278,MasterCard,www.snapdeal.com,Studio Light,2019-05-28 05:30:00,89.99,Mysore,India
+279,Visa,www.amazon.com,Desk Light,2019-05-28 05:45:00,35.00,Bareilly,India
+280,MasterCard,www.ebay.com,Clip Light,2019-05-28 06:00:00,15.99,Gurgaon,India
+281,Visa,www.flipkart.com,Wall Charger 20W,2019-05-28 06:15:00,19.99,Aligarh,India
+282,MasterCard,www.snapdeal.com,Fast Charger 65W,2019-05-28 06:30:00,39.99,Jalandhar,India
+283,Visa,www.amazon.com,Car Charger,2019-05-28 06:45:00,22.50,Kota,India
+284,MasterCard,www.ebay.com,Wireless Charger Pad,2019-05-28 07:00:00,29.99,Raipur,India
+285,Visa,www.flipkart.com,Multi Port Charger,2019-05-28 07:15:00,45.00,Jodhpur,India
+286,MasterCard,www.snapdeal.com,Power Strip,2019-05-28 07:30:00,24.99,Madurai,India
+287,Visa,www.amazon.com,Surge Protector,2019-05-28 07:45:00,35.00,Jabalpur,India
+288,MasterCard,www.ebay.com,Extension Cord,2019-05-28 08:00:00,18.99,Coimbatore,India
+289,Visa,www.flipkart.com,Cable Clips,2019-05-28 08:15:00,8.99,Kochi,India
+290,MasterCard,www.snapdeal.com,Cable Sleeve,2019-05-28 08:30:00,12.99,Cuttack,India
+291,Visa,www.amazon.com,Cable Ties,2019-05-28 08:45:00,6.99,Amravati,India
+292,MasterCard,www.ebay.com,Cable Box,2019-05-28 09:00:00,19.99,Solapur,India
+293,Visa,www.flipkart.com,Desk Organizer,2019-05-28 09:15:00,24.99,Hubli,India
+294,MasterCard,www.snapdeal.com,Drawer Organizer,2019-05-28 09:30:00,15.99,Tirupur,India
+295,Visa,www.amazon.com,Monitor Riser,2019-05-28 09:45:00,29.99,Moradabad,India
+296,MasterCard,www.ebay.com,Laptop Riser,2019-05-28 10:00:00,35.00,Mysuru,India
+297,Visa,www.flipkart.com,Phone Grip,2019-05-28 10:15:00,9.99,Gwalior,India
+298,MasterCard,www.snapdeal.com,Tablet Stand,2019-05-28 10:30:00,19.99,Vijayawada,India
+299,Visa,www.amazon.com,Book Stand,2019-05-28 10:45:00,22.50,Guntur,India
