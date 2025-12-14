@@ -1,0 +1,17 @@
+Textual Resources:
+https://dumps.wikimedia.org/
+https://www.nltk.org/nltk_data/
+https://pile.eleuther.ai/
+https://archive.ics.uci.edu/dataset/228/sms+spam+collection
+https://data.mendeley.com/datasets/cj22rpfdbb/1
+
+Others:
+https://github.com/src-d/datasets/tree/master/PublicGitArchive
+https://github.com/niderhoff/big-data-datasets
+https://aws.amazon.com/marketplace/search/results?trk=868d8747-614e-4d4d-9fb6-fd5ac02947a8&sc_channel=el&FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CONTRACT_TYPE=OPEN_DATA_LICENSES&filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE
+
+Image datasets:
+https://cocodataset.org/#home
+http://vision.stanford.edu/aditya86/ImageNetDogs/
+https://github.com/zalandoresearch/fashion-mnist
+https://www.cs.toronto.edu/~kriz/cifar.html
