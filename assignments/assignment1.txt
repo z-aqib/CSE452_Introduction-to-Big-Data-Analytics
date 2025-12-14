@@ -1,0 +1,69 @@
+Assalamoalaikum. Design the scripts below. Explain the code in your own words. Show output. Submit PDF. This is individual (to help everyone develop concepts). It is best to play around with your system first to generate some activity. Upload some data and do the basic Ubuntu commands.
+
+ 
+
+Log Analyzer
+
+Write a Bash that:
+
+Reads /var/log/syslog.
+Extracts all unique services that generated error messages.
+Counts how many times each service reported an error.
+Stores the top 5 most error-prone services into a CSV file (errors.csv) with the format: Service,Occurrences
+
+ 
+
+Custom Backup System
+
+Write a script that:
+
+Takes a directory name as input.
+Compresses it into a .tar.gz file with today’s date in the filename.
+Before compressing, it must skip files larger than 1 MB and log their names into skipped_files.txt.
+At the end, it should print the total size of the backup.
+
+ 
+
+User Management with Constraints:
+
+Write a script that:
+
+Reads usernames from a text file (users.txt).
+Creates each user with:
+A home directory.
+A default password (ChangeMe123).
+Then, disables login for users whose names start with “temp”.
+
+ 
+
+Process Monitor
+
+Write a script that:
+
+Monitors processes every 5 seconds.
+If any process uses more than 5% CPU or 50 MB memory, log its PID, name, CPU%, and memory% into alerts.log.
+If the same process is logged 3 times consecutively, automatically kill it.
+
+
+ 
+
+Parallel Download Manager
+
+Write a script that:
+
+Reads a list of URLs from urls.txt.
+Downloads them in parallel (max 3 at a time).
+Logs failed downloads separately.
+
+ 
+
+Customized ls command:
+
+Write a script named my_ls.sh that:
+
+Prints files in a directory with:
+File name
+Size in KB
+Owner
+Last modified time
+and sorts it by size (descending).
